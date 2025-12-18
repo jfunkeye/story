@@ -3,684 +3,1258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Treasure - Our Corper Journey</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
+    <title>Our Love Story | For My Amazing Girlfriend</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         :root {
-            --primary-color: #ff6b8b;
-            --secondary-color: #6c5ce7;
-            --corper-green: #00b894;
-            --dark-color: #2d3436;
-            --light-color: #f9f9f9;
+            --primary-pink: #ff69b4;
+            --secondary-pink: #ff1493;
+            --light-pink: #ffebf3;
+            --dark-pink: #c71585;
+            --purple: #da70d6;
+            --light-purple: #f9f0ff;
+            --gold: #ffd700;
+            --white: #ffffff;
+            --shadow: rgba(199, 21, 133, 0.2);
         }
         
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #fef6f9;
-            color: var(--dark-color);
-            overflow-x: hidden;
+            background: linear-gradient(135deg, var(--light-purple) 0%, var(--light-pink) 100%);
+            color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
-        h1, h2, h3, h4 {
-            font-weight: 600;
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
-        .cursive {
-            font-family: 'Dancing Script', cursive;
-        }
-        
-        /* Hero Section */
-        #hero {
-            height: 100vh;
-            background: linear-gradient(rgba(255, 107, 139, 0.85), rgba(0, 184, 148, 0.85)), url('https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(218, 112, 214, 0.85), rgba(199, 21, 133, 0.9)), url('https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 120px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: 50px;
         }
         
-        .heart-icon {
-            color: var(--primary-color);
-            animation: heartbeat 1.5s infinite;
-            font-size: 3rem;
+        .heart-bg {
+            position: absolute;
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.3);
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        .heart-bg:nth-child(2n) {
+            animation-delay: 1s;
+        }
+        
+        .heart-bg:nth-child(3n) {
+            animation-delay: 2s;
+        }
+        
+        header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
             margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            position: relative;
+            display: inline-block;
+        }
+        
+        header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
+        }
+        
+        .header-hearts {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-top: 20px;
+            animation: heartbeat 2s infinite;
         }
         
         @keyframes heartbeat {
-            0% { transform: scale(1); }
-            5% { transform: scale(1.1); }
-            10% { transform: scale(1); }
-            15% { transform: scale(1.1); }
-            20% { transform: scale(1); }
-            100% { transform: scale(1); }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
         
-        /* Step Sections */
-        .step-section {
-            padding: 100px 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.8s, transform 0.8s;
-        }
-        
-        .step-section.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .step-number {
-            font-size: 5rem;
-            font-weight: 700;
-            color: rgba(255, 107, 139, 0.2);
-            position: absolute;
-            top: -30px;
-            left: -20px;
-            z-index: -1;
-        }
-        
-        .step-content {
+        /* Our Story Section */
+        .story-section {
+            padding: 80px 0;
             position: relative;
+        }
+        
+        .story-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,192C672,181,768,139,864,138.7C960,139,1056,181,1152,181.3C1248,181,1344,139,1392,117.3L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3C/svg%3E") no-repeat;
+            background-size: cover;
             z-index: 1;
         }
         
-        /* Different Backgrounds for Steps */
-        #step1 { background-color: #fff5f7; }
-        #step2 { background-color: #f7f5ff; }
-        #step3 { background-color: #f5fff7; }
-        #step4 { background-color: #fff7f5; }
-        #step5 { background-color: #f7fff5; }
-        #step6 { background-color: #f5f7ff; }
+        .story-content {
+            background: white;
+            border-radius: 25px;
+            padding: 60px;
+            box-shadow: 0 20px 40px var(--shadow);
+            position: relative;
+            z-index: 2;
+            border: 2px solid var(--light-pink);
+            overflow: hidden;
+        }
         
-        /* Corper Badge */
-        .corper-badge {
-            background-color: var(--corper-green);
-            color: white;
-            padding: 5px 15px;
+        .story-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--light-pink) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .story-content::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -50%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--light-purple) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .story-text {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .story-card {
+            background: var(--light-pink);
+            padding: 30px;
             border-radius: 20px;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin: 0 5px;
+            transition: transform 0.3s ease;
+            border-left: 5px solid var(--dark-pink);
         }
         
-        /* Images */
-        .story-image {
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.5s;
-            max-height: 400px;
-            object-fit: cover;
-            width: 100%;
-        }
-        
-        .story-image:hover {
+        .story-card:hover {
             transform: translateY(-10px);
         }
         
-        /* Progress Bar */
-        #progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background-color: rgba(255, 255, 255, 0.1);
-            z-index: 1000;
-        }
-        
-        #progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(to right, var(--primary-color), var(--corper-green));
-            transition: width 0.3s;
-        }
-        
-        /* Navigation */
-        .step-nav {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 999;
-        }
-        
-        .step-nav-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
+        .story-card h3 {
+            color: var(--dark-pink);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            box-shadow: 0 5px 15px rgba(255, 107, 139, 0.4);
-            transition: all 0.3s;
+            gap: 10px;
         }
         
-        .step-nav-btn:hover {
-            background-color: var(--corper-green);
+        .story-card h3 i {
+            color: var(--gold);
+        }
+        
+        .highlight {
+            color: var(--dark-pink);
+            font-weight: 600;
+            background: linear-gradient(transparent 70%, var(--light-pink) 0%);
+            padding: 0 5px;
+        }
+        
+        .stunning-circle {
+            color: var(--secondary-pink);
+            font-weight: 700;
+            font-style: italic;
+            text-decoration: underline;
+            text-decoration-color: var(--gold);
+        }
+        
+        /* Photo Gallery */
+        .gallery-section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            text-align: center;
+            color: var(--dark-pink);
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(to right, var(--purple), var(--secondary-pink));
+            border-radius: 3px;
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .photo-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px var(--shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(199, 21, 133, 0.3);
+            border-color: var(--purple);
+        }
+        
+        .photo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--purple), var(--secondary-pink), var(--gold));
+            z-index: 2;
+        }
+        
+        .photo-img-container {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .photo-card:hover .photo-img {
             transform: scale(1.1);
         }
         
-        /* Final Message */
-        #final-message {
-            background: linear-gradient(135deg, var(--primary-color), var(--corper-green));
-            color: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        .photo-info {
+            padding: 25px;
             text-align: center;
+            position: relative;
         }
         
-        /* Treasure Name Special */
-        .treasure-name {
-            color: var(--primary-color);
-            font-weight: 700;
-            font-size: 1.2em;
-        }
-        
-        .corper-highlight {
-            color: var(--corper-green);
-            font-weight: 600;
-        }
-        
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .step-section {
-                padding: 60px 0;
-            }
-            
-            .step-number {
-                font-size: 3rem;
-                top: -15px;
-                left: -10px;
-            }
-        }
-        
-        /* Floating elements */
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-        
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        /* Map container */
-        .map-container {
-            background-color: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-        
-        .map-placeholder {
-            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
-            height: 200px;
-            border-radius: 10px;
+        .photo-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--dark-pink);
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #6c757d;
+            gap: 10px;
+        }
+        
+        .photo-name i {
+            color: var(--gold);
+        }
+        
+        .photo-message {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .view-full {
+            background: linear-gradient(to right, var(--purple), var(--secondary-pink));
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .view-full:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(218, 112, 214, 0.4);
+        }
+        
+        /* Modal Gallery */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 25px;
+            max-width: 1000px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: hidden;
+            position: relative;
+            animation: slideUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px) scale(0.9); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
+        }
+        
+        .modal-header {
+            background: linear-gradient(to right, var(--purple), var(--secondary-pink));
+            color: white;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .close-modal {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            max-height: calc(90vh - 100px);
+            overflow-y: auto;
+        }
+        
+        .modal-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            padding: 30px;
+            background: #f9f9f9;
+        }
+        
+        .modal-details {
+            padding: 30px;
+            background: white;
+        }
+        
+        .modal-message {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: center;
             font-style: italic;
+            padding: 20px;
+            background: var(--light-pink);
+            border-radius: 15px;
+            position: relative;
+        }
+        
+        .modal-message::before {
+            content: '“';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            color: var(--purple);
+            opacity: 0.3;
+        }
+        
+        .modal-nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 30px;
+            background: #f5f5f5;
+            border-top: 1px solid #eee;
+        }
+        
+        .nav-btn {
+            background: linear-gradient(to right, var(--purple), var(--secondary-pink));
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(218, 112, 214, 0.4);
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Love Note */
+        .love-note {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--light-purple) 0%, var(--light-pink) 100%);
+            position: relative;
+            clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+            margin-top: 50px;
+        }
+        
+        .love-note-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 70px;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px var(--shadow);
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+            background-clip: padding-box;
+        }
+        
+        .love-note-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 30px;
+            padding: 3px;
+            background: linear-gradient(45deg, var(--purple), var(--secondary-pink), var(--gold));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            z-index: -1;
+        }
+        
+        .love-note-content h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--dark-pink);
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .love-note-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--purple), var(--secondary-pink));
+        }
+        
+        .note-paragraph {
+            font-size: 1.3rem;
+            line-height: 1.9;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 15px;
+            background: var(--light-pink);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .note-paragraph:hover {
+            transform: translateX(10px);
+        }
+        
+        .note-paragraph:nth-child(even) {
+            background: var(--light-purple);
+        }
+        
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--dark-pink);
+            text-align: right;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px dashed var(--purple);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        
+        .signature span {
+            font-size: 1.2rem;
+            color: #777;
+            margin-top: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #333, #222);
+            color: white;
+            padding: 70px 0 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--purple), var(--secondary-pink), var(--gold));
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        .footer-hearts {
+            font-size: 2.5rem;
+            color: var(--primary-pink);
+            margin-bottom: 20px;
+            animation: heartbeat 2s infinite;
+        }
+        
+        .footer-quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: #ddd;
+            position: relative;
+            padding: 0 20px;
+        }
+        
+        .footer-quote::before, .footer-quote::after {
+            content: '"';
+            font-size: 2rem;
+            color: var(--gold);
+            position: absolute;
+            top: -10px;
+        }
+        
+        .footer-quote::before {
+            left: 0;
+        }
+        
+        .footer-quote::after {
+            right: 0;
+        }
+        
+        .copyright {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 80px 0;
+                clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            }
+            
+            header h1 {
+                font-size: 3.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.8rem;
+            }
+            
+            .story-content {
+                padding: 40px 20px;
+            }
+            
+            .love-note-content {
+                padding: 40px 20px;
+            }
+            
+            .modal-content {
+                max-height: 95vh;
+            }
+            
+            .modal-body {
+                max-height: calc(95vh - 100px);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.3rem;
+            }
+            
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-header {
+                padding: 15px;
+            }
+            
+            .modal-title {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Progress Bar -->
-    <div id="progress-container">
-        <div id="progress-bar"></div>
-    </div>
-    
-    <!-- Hero Section -->
-    <section id="hero">
+    <!-- Header -->
+    <header>
         <div class="container">
-            <div class="heart-icon">
+            <!-- Floating hearts -->
+            <div class="heart-bg" style="top: 10%; left: 5%;"><i class="fas fa-heart"></i></div>
+            <div class="heart-bg" style="top: 20%; right: 10%;"><i class="fas fa-heart"></i></div>
+            <div class="heart-bg" style="bottom: 30%; left: 15%;"><i class="fas fa-heart"></i></div>
+            <div class="heart-bg" style="bottom: 20%; right: 20%;"><i class="fas fa-heart"></i></div>
+            <div class="heart-bg" style="top: 40%; left: 20%;"><i class="fas fa-heart"></i></div>
+            <div class="heart-bg" style="top: 60%; right: 30%;"><i class="fas fa-heart"></i></div>
+            
+            <h1>My Beautiful Love</h1>
+            <p>Every moment with you is a precious memory, every smile a treasure, and every day a blessing. This website is my love letter to you.</p>
+            <div class="header-hearts">
+                <i class="fas fa-heart"></i> 
+                <i class="fas fa-heart"></i> 
                 <i class="fas fa-heart"></i>
             </div>
-            <h1 class="display-3 cursive mb-4">To My Treasure <span class="corper-badge">Fellow Corper</span></h1>
-            <p class="lead mb-4">A NYSC journey that became so much more...</p>
-            <p class="mb-5">Scroll down to discover our unique story, step by step</p>
-            <a href="#step1" class="btn btn-light btn-lg px-4 py-3 floating">
-                Begin Our Journey <i class="fas fa-arrow-down ms-2"></i>
-            </a>
         </div>
-    </section>
-    
-    <!-- Step 1 -->
-    <section id="step1" class="step-section">
+    </header>
+
+    <!-- Our Story Section -->
+    <section class="story-section">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="step-content">
-                        <div class="step-number">01</div>
-                        <h2 class="mb-4 cursive">The First Encounter</h2>
-                        <p class="lead">It all started in a common group where you, <span class="treasure-name">Treasure</span>, asked a question...</p>
-                        <p>I saw your question and immediately wanted to help. I sent you a private message, excited to offer assistance to a <span class="corper-highlight">fellow Corper</span>. But I was a bit too late - someone else had already helped you out.</p>
-                        <p>But that didn't stop our conversation. Even though the initial reason to message was gone, we kept talking. And I'm so glad we did.</p>
-                        <p>Little did I know that this simple interaction would lead to meeting someone as precious as your name suggests.</p>
+            <h2 class="section-title">Our Beautiful Story</h2>
+            <div class="story-content">
+                <div class="story-text">
+                    <div class="story-card">
+                        <h3><i class="fas fa-heart-circle-bolt"></i> How We Met</h3>
+                        <p>It all began in the <span class="stunning-circle">"Stunning Circle"</span> group online. I saw your post and felt an immediate connection. When I <span class="highlight">reacted to your post</span>, little did I know it would be the start of something beautiful.</p>
+                        <p>We started talking and discovered we both followed the same <span class="highlight">Christian couples on Facebook</span>. This shared interest created a strong foundation for our relationship from day one.</p>
+                    </div>
+                    
+                    <div class="story-card">
+                        <h3><i class="fas fa-hearts"></i> Our Journey</h3>
+                        <p>We decided to <span class="highlight">give "us" a chance</span>, and these past few months have been nothing short of amazing. We've shared laughter, deep conversations, and grown together in faith.</p>
+                        <p>Like any relationship, we've faced <span class="highlight">challenges and issues at times</span>, but what truly matters is how we always come together, talk it through, and <span class="highlight">settle our differences with love and understanding</span>.</p>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <img src="img/pic1.jpg" class="story-image floating" alt="First encounter">
-                    <div class="map-container">
-                        <h5 class="mb-3"><i class="fas fa-map-marker-alt me-2"></i>Our NYSC Connection</h5>
-                        <div class="map-placeholder">
-                            <div class="text-center">
-                                <i class="fas fa-map-marked-alt fa-3x mb-3"></i>
-                                <p>Two Corpers in the same state<br>
-                                <span class="corper-highlight">Different LGAs, Same Destiny</span></p>
-                            </div>
-                        </div>
-                    </div>
+                
+                <div class="story-card" style="grid-column: 1 / -1;">
+                    <h3><i class="fas fa-star"></i> My Promise</h3>
+                    <p>Every day with you reminds me how blessed I am. You've brought so much joy, love, and meaning into my life. I promise to cherish you, support your dreams, and love you more with each passing day. Together, we're building something beautiful that I believe will last a lifetime.</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Step 2 -->
-    <section id="step2" class="step-section">
+
+    <!-- Photo Gallery Section -->
+    <section class="gallery-section">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 order-lg-2">
-                    <div class="step-content">
-                        <div class="step-number">02</div>
-                        <h2 class="mb-4 cursive">The Amazing Discovery</h2>
-                        <p class="lead">As we continued talking, I discovered something incredible about you, <span class="treasure-name">Treasure</span>...</p>
-                        <p>You're not just intelligent and curious, but you have this amazing energy that I've never encountered before. Our conversations flowed naturally, as if we'd known each other for years.</p>
-                        <p>Every message revealed more about your wonderful personality - your kindness, your wisdom, your unique perspective on life. I found myself eagerly awaiting your replies, even during our busy <span class="corper-highlight">Corper schedules</span>.</p>
-                        <p>Despite serving in different LGAs, I felt a connection that transcended the distance between us.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6 order-lg-1">
-                    <img src="img/pic2.jpg" class="story-image floating" alt="Discovery">
-                </div>
+            <h2 class="section-title">100 Reasons Why I Love You</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: #666; font-size: 1.1rem;">Each photo captures a moment, a memory, a reason why my heart belongs to you. Click on any photo to see it fully and read my special message for you.</p>
+            
+            <div class="gallery-container" id="photoGallery">
+                <!-- Photos will be dynamically loaded here -->
             </div>
         </div>
     </section>
-    
-    <!-- Step 3 -->
-    <section id="step3" class="step-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="step-content">
-                        <div class="step-number">03</div>
-                        <h2 class="mb-4 cursive">Matching Energy</h2>
-                        <p class="lead">For the very first time in my life, I found someone who matches my energy...</p>
-                        <p><span class="treasure-name">Treasure</span>, our conversations felt like a dance - perfectly in sync. You understood my jokes, appreciated my thoughts, and challenged my ideas in the most constructive way.</p>
-                        <p>I've met many people during this <span class="corper-badge">NYSC</span> year, but never someone who resonated with me on this level. It was as if we were speaking the same language, one that goes beyond words.</p>
-                        <p>Even though we're serving in different LGAs, talking to you made the distance feel irrelevant. Your energy reached me across the miles.</p>
-                    </div>
+
+    <!-- Modal for Full Image View -->
+    <div class="modal-overlay" id="imageModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <i class="fas fa-heart"></i>
+                    <span id="modalPhotoName">My Beautiful Love</span>
                 </div>
-                <div class="col-lg-6">
-                    <img src="img/pic3.jpg" class="story-image floating" alt="Matching energy">
-                    <div class="mt-4 p-3 text-center" style="background-color: #e3f2fd; border-radius: 10px;">
-                        <i class="fas fa-comments fa-2x mb-2" style="color: var(--corper-green);"></i>
-                        <p class="mb-0">"Our conversations became the highlight of my service year"</p>
-                    </div>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <img class="modal-image" id="modalImage" src="" alt="Full size image">
+                <div class="modal-details">
+                    <p class="modal-message" id="modalMessage">Your smile lights up my world brighter than the sun.</p>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Step 4 -->
-    <section id="step4" class="step-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 order-lg-2">
-                    <div class="step-content">
-                        <div class="step-number">04</div>
-                        <h2 class="mb-4 cursive">The Unplanned Feelings</h2>
-                        <p class="lead">I only wanted to be your friend, that's what I told you...</p>
-                        <p>And you agreed. We became friends - good friends. But as we talked more, something began to change in my heart.</p>
-                        <p>I tried to ignore it, to tell myself it was just friendship between two <span class="corper-highlight">fellow Corpers</span>. But the truth kept growing stronger with every conversation. I was falling for you, against my own plans.</p>
-                        <p><span class="treasure-name">Treasure</span>, your name became more than just a name - it became how I saw you. A precious discovery in this service year.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6 order-lg-1">
-                    <img src="img/pic4.jpg" class="story-image floating" alt="Unplanned feelings">
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Step 5 -->
-    <section id="step5" class="step-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="step-content">
-                        <div class="step-number">05</div>
-                        <h2 class="mb-4 cursive">Heavenly Conversations</h2>
-                        <p class="lead">Ever since we started talking, it feels like heaven...</p>
-                        <p><span class="treasure-name">Treasure</span>, our conversations brighten my darkest days. Your words lift me up, make me think, and bring a smile to my face that lasts for hours.</p>
-                        <p>Even through screens and distance, I feel a connection that's rare and precious. Talking with you has become the highlight of my days, a welcome break from the <span class="corper-highlight">Corper routine</span>.</p>
-                        <p>I find myself wondering what you're doing in your LGA, hoping your day is going well, and looking forward to our next conversation.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <img src="img/pic5.jpg" class="story-image floating" alt="Heavenly conversations">
-                    <div class="mt-4 p-4 text-center" style="background: linear-gradient(to right, #ff6b8b, #00b894); color: white; border-radius: 10px;">
-                        <i class="fas fa-heart fa-2x mb-2"></i>
-                        <p class="mb-0">"In a year of service, I found something worth more than anything"</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Step 6 - Final Message -->
-    <section id="step6" class="step-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div id="final-message">
-                        <div class="heart-icon mb-4">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h1 class="display-4 cursive mb-4">My Truth, <span class="treasure-name">Treasure</span></h1>
-                        <p class="lead mb-4">I started as a fellow Corper wanting to help, but life had other plans.</p>
-                        <p class="mb-4">Our conversations have become the most beautiful part of my service year. You've shown me what it means to connect with someone on every level - intellectually, emotionally, spiritually.</p>
-                        <p class="mb-4">I know I said I just wanted to be friends, and I meant it at the time. But getting to know you has changed everything. Despite being in different LGAs, you feel closer to me than anyone.</p>
-                        <div class="py-4 my-4 border-top border-bottom border-light">
-                            <h3 class="cursive">I've fallen in love with you, <span class="treasure-name">Treasure</span>.</h3>
-                        </div>
-                        <p class="mb-5">Not just for your amazing personality, intelligence, or beauty. But for the way you make me feel - understood, valued, and incredibly lucky to know you during this NYSC year.</p>
-                        <div class="d-flex flex-column align-items-center mt-5">
-                            <button id="reveal-btn" class="btn btn-outline-light btn-lg px-5 py-3 mb-3">
-                                <i class="fas fa-gift me-2"></i> A Special Message For My Treasure
-                            </button>
-                            <span class="corper-badge">From one Corper to another</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Navigation Buttons -->
-    <div class="step-nav">
-        <button id="prev-btn" class="step-nav-btn" title="Previous Step">
-            <i class="fas fa-chevron-up"></i>
-        </button>
-        <button id="next-btn" class="step-nav-btn" title="Next Step">
-            <i class="fas fa-chevron-down"></i>
-        </button>
-    </div>
-    
-    <!-- Special Message Modal -->
-    <div class="modal fade" id="specialMessageModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title cursive">To My Treasure <span class="corper-badge">Fellow Corper</span></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <div class="heart-icon mb-3">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <p class="lead">Dear <span class="treasure-name">Treasure</span>,</p>
-                    <p>Thank you for coming into my life during this service year. What started as a simple attempt to help a fellow Corper has become the most beautiful part of my NYSC experience.</p>
-                    <p>Our journey began unexpectedly, but it has become the most precious discovery. Every conversation with you feels like finding treasure - which is why your name is so perfect.</p>
-                    <p>I don't know what the future holds after service year, but I know I want you in it. Whether as friends or something more, having you in my life makes everything better.</p>
-                    <div class="my-4 p-3" style="background-color: #f8f9fa; border-radius: 10px;">
-                        <i class="fas fa-map-marker-alt me-2"></i>
-                        <span>Distance between LGAs: Irrelevant</span><br>
-                        <i class="fas fa-heart me-2"></i>
-                        <span>Connection between us: Everything</span>
-                    </div>
-                    <p class="mt-4 fst-italic">With all my heart,</p>
-                    <p class="cursive fs-4">Your fellow Corper who cherishes you</p>
-                </div>
-                <div class="modal-footer border-0 justify-content-center">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                </div>
+            <div class="modal-nav">
+                <button class="nav-btn" id="prevBtn">
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <span style="color: #666; align-self: center;">Photo <span id="currentPhoto">1</span> of 100</span>
+                <button class="nav-btn" id="nextBtn">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+    <!-- Love Note Section -->
+    <section class="love-note">
+        <div class="container">
+            <div class="love-note-content">
+                <h2>My Heart's Promise</h2>
+                
+                <div class="note-paragraph">
+                    My dearest love, from the moment we started talking, I knew there was something special about you. Our connection in the Stunning Circle group felt like destiny, and when we discovered we both followed those Christian couples, it confirmed that God was bringing us together.
+                </div>
+                
+                <div class="note-paragraph">
+                    These past few months have been the most amazing time of my life. You've shown me what true love means - it's not just about the happy moments, but about working through challenges together, growing in faith together, and choosing each other every single day.
+                </div>
+                
+                <div class="note-paragraph">
+                    I love how we can talk about anything - our dreams, our fears, our faith. I love how we pray together, how we encourage each other to be better people, and how we're building a relationship grounded in God's love.
+                </div>
+                
+                <div class="note-paragraph">
+                    Even when we face issues, I'm grateful that we always find a way to settle them with love and understanding. That's what makes our relationship strong and beautiful. We're not perfect, but we're perfect for each other.
+                </div>
+                
+                <div class="signature">
+                    Forever Yours
+                    <span>Since the day we met in the Stunning Circle</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-hearts">
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart"></i>
+                </div>
+                
+                <p class="footer-quote">
+                    "I have found the one whom my soul loves." - Song of Solomon 3:4
+                </p>
+                
+                <p style="margin-bottom: 20px; color: #ddd;">
+                    This website was created with all my love for the most amazing woman I know.<br>
+                    Every photo, every word, every detail is a testament to how much you mean to me.
+                </p>
+                
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
+                        <i class="fas fa-calendar-heart" style="color: var(--primary-pink); margin-right: 10px;"></i>
+                        <span>Few amazing months together</span>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
+                        <i class="fas fa-cross" style="color: var(--gold); margin-right: 10px;"></i>
+                        <span>Built on faith and love</span>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
+                        <i class="fas fa-infinity" style="color: var(--purple); margin-right: 10px;"></i>
+                        <span>Forever to go</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>Made with <i class="fas fa-heart" style="color: var(--primary-pink);"></i> for my beautiful girlfriend | Our Love Story | Since we met in the Stunning Circle</p>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // DOM Elements
-        const heroSection = document.getElementById('hero');
-        const stepSections = document.querySelectorAll('.step-section');
-        const progressBar = document.getElementById('progress-bar');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const revealBtn = document.getElementById('reveal-btn');
-        const specialMessageModal = new bootstrap.Modal(document.getElementById('specialMessageModal'));
-        
-        // Current step tracker
-        let currentStep = 0;
-        const totalSteps = stepSections.length;
-        
-        // Initialize the first step
-        window.addEventListener('DOMContentLoaded', () => {
-            // Show first step
-            showStep(0);
+        // Expanded array of sweet love names for the photos
+        const sweetNames = [
+            "My Sunshine", "Angel Eyes", "Beautiful Soul", "Heart's Desire", "Precious One",
+            "Dream Girl", "My Happiness", "Love of My Life", "Beautiful Smile", "My Everything",
+            "Treasure", "My Joy", "Sweetest Heart", "Beautiful Dream", "My Inspiration",
+            "Radiant Beauty", "My Peace", "Adorable", "Perfect Match", "My World",
+            "Beautiful Inside Out", "My Sweetheart", "Amazing Grace", "My Blessing", "Heaven Sent",
+            "Precious Gem", "My Darling", "Beautiful Spirit", "My Comfort", "My Hope",
+            "Sweet Angel", "My Serenity", "Beautiful Soulmate", "My Devotion", "Perfect Beauty",
+            "My Adoration", "Beautiful Mind", "My Delight", "Wonderful One", "My Cherish",
+            "Sweet Love", "My Affection", "Beautiful Heart", "My Passion", "Incredible Woman",
+            "My Beloved", "Beautiful Presence", "My Admiration", "Sweet Dream", "My Forever",
+            "Beautiful Grace", "My Tender Love", "Gorgeous Smile", "My Precious", "Sweet Soul",
+            "My Dearest", "Beautiful Light", "My Tender Heart", "Amazing Love", "My Beautiful",
+            "Sweet Joy", "My Loving Partner", "Beautiful Companion", "My Faithful Love", "Sweet Peace",
+            "My Perfect One", "Beautiful Harmony", "My Sweet Companion", "Lovely Spirit", "My Kind Heart",
+            "Sweet Harmony", "My Faithful One", "Beautiful Trust", "My Loyal Love", "Sweet Devotion",
+            "My Support", "Beautiful Strength", "My Courage", "Sweet Courage", "My Inspiration",
+            "Beautiful Wisdom", "My Guide", "Sweet Wisdom", "My Teacher", "Beautiful Patience",
+            "My Understanding", "Sweet Patience", "My Compassion", "Beautiful Compassion", "My Empathy",
+            "Sweet Empathy", "My Kindness", "Beautiful Kindness", "My Generosity", "Sweet Generosity",
+            "My Thoughtfulness", "Beautiful Thoughtfulness", "My Care", "Sweet Care", "My Protection"
+        ];
+
+        // Expanded array of sweet messages for the photos
+        const sweetMessages = [
+            "Your smile lights up my world brighter than a thousand suns. I could gaze at it forever.",
+            "Every day with you feels like a beautiful dream I never want to wake up from.",
+            "You make my heart do happy little dances I never knew were possible.",
+            "I'm endlessly grateful that God brought you into my life at the perfect time.",
+            "You are the living, breathing answer to all my prayers and dreams.",
+            "My love for you grows deeper and stronger with each sunrise we share.",
+            "You are simply the most amazing person I've ever had the privilege to know.",
+            "You complete parts of my soul I never even knew were missing.",
+            "I cherish every single memory we've created together, big and small.",
+            "You are my greatest adventure, my favorite journey, my beautiful destination.",
+            "Words could never fully capture the depth of your beauty, inside and out.",
+            "My heart recognized its home the moment it found its way to you.",
+            "You are God's most beautiful blessing in my life, wrapped in grace.",
+            "Being with you feels like finally finding where I truly belong.",
+            "You have this magical way of making everything in life better and brighter.",
+            "I fall more in love with you with each passing moment we share.",
+            "You are hands down my favorite person in this entire universe.",
+            "Your love gives me strength I never knew I had and courage to face anything.",
+            "You are my happy place, my safe harbor, my peaceful sanctuary.",
+            "I truly believe I'm the luckiest person alive to call you mine.",
+            "You have this incredible ability to make ordinary moments feel extraordinary.",
+            "My love for you knows no bounds, no limits, no ending in sight.",
+            "You are my perfect match in every way that truly matters.",
+            "You inspire me daily to be a better man, a better partner, a better Christian.",
+            "You are without a doubt the best thing that has ever happened to me.",
+            "I adore every single thing about you - your quirks, your passions, your soul.",
+            "You are my safe harbor when life's storms come rolling in.",
+            "You make my world more colorful, more beautiful, more meaningful.",
+            "You are my heart's greatest desire, fulfilled beyond my wildest dreams.",
+            "I am forever yours, today, tomorrow, and for all eternity.",
+            "You are my miracle walking, my blessing talking, my answered prayer living.",
+            "Your love is the most precious treasure I will ever possess.",
+            "You are my forever and always, the constant in my changing world.",
+            "You are my today's joy and all my tomorrow's hopes combined.",
+            "You are the living proof that true, God-centered love exists.",
+            "You are my beautiful blessing, wrapped in grace and tied with love.",
+            "You are the sunshine that breaks through even my cloudiest days.",
+            "You are the peace that calms even my most turbulent storms.",
+            "You are my anchor, keeping me steady when waters get rough.",
+            "You are my guiding star, leading me home when I feel lost.",
+            "You are the beautiful dream I never knew I was dreaming of.",
+            "You are my heart's favorite melody, playing on constant repeat.",
+            "You are the beautiful journey I want to travel forever.",
+            "You are my favorite thought that brightens even the dullest day.",
+            "You are my sweetest dream that somehow became my beautiful reality.",
+            "You are my perfect moment, captured and cherished forever.",
+            "You are my greatest joy, my deepest happiness, my everything.",
+            "You are my heart's true home, where I'm always meant to be.",
+            "You are my beautiful truth in a world full of uncertainties.",
+            "You are my everything and so much more than I ever dreamed.",
+            "Looking at you still takes my breath away, every single time.",
+            "Your eyes hold entire galaxies of love, kindness, and wisdom.",
+            "Your laughter is my absolute favorite sound in the whole world.",
+            "Your touch sends waves of warmth and comfort through my entire being.",
+            "Your voice is the sweetest, most beautiful music to my ears.",
+            "Your mere presence can transform any place into paradise.",
+            "Your kindness radiates from you like sunlight through clouds.",
+            "Your intelligence constantly impresses, inspires, and delights me.",
+            "Your faith strengthens mine and draws us both closer to God.",
+            "Your compassion for others makes me love you more each day.",
+            "Your strength in facing challenges inspires me beyond words.",
+            "Your patience with me and my flaws shows Christ's love in action.",
+            "Your wisdom guides us through difficulties with grace and hope.",
+            "Your generous spirit knows no bounds and touches everyone.",
+            "Your sense of humor brightens even my darkest, toughest days.",
+            "Your optimism about our future fills me with endless hope.",
+            "Your loyalty is a rare and precious gift I treasure daily.",
+            "Your honesty builds a foundation of trust that will last forever.",
+            "Your gentleness soothes my worries and calms my anxieties.",
+            "Your passion for life is absolutely contagious and beautiful.",
+            "Your creativity brings such beauty and joy into our world.",
+            "Your determination to make 'us' work inspires me endlessly.",
+            "Your forgiveness when I fail reflects God's grace perfectly.",
+            "Your grace under pressure leaves me in constant awe of you.",
+            "Your vulnerability with me is the most precious gift I've received.",
+            "Your confidence in 'us' gives me strength when I have doubts.",
+            "Your commitment to our relationship means everything to me.",
+            "Your understanding during my struggles means the absolute world.",
+            "Your support of my dreams fuels my ambition and courage.",
+            "Your encouragement lifts me higher than I could ever go alone.",
+            "Your partnership in this life is my greatest blessing and gift.",
+            "Your friendship forms the unshakeable foundation of our love.",
+            "Your respect for me builds my self-worth and confidence.",
+            "Your appreciation for life's small things teaches me gratitude.",
+            "Your attention to details shows how deeply you truly care.",
+            "Your memory of our special moments touches my heart deeply.",
+            "Your dedication to 'us' is my security, my peace, my home.",
+            "Your willingness to work through issues shows incredible maturity.",
+            "Your ability to communicate openly strengthens our bond daily.",
+            "Your empathy when I'm hurting brings healing to my soul.",
+            "Your prayers for us cover our relationship in divine grace.",
+            "Your trust in me is a responsibility I cherish and protect.",
+            "Your belief in our future together gives me endless hope.",
+            "Your commitment to growing together is breathtakingly beautiful.",
+            "Your desire to truly know me is humbling and beautiful.",
+            "Your acceptance of all my flaws makes me feel truly loved.",
+            "Your celebration of my successes shows incredible selflessness.",
+            "Your comfort when I'm sad or struggling is my safe harbor.",
+            "Your excitement for our future together fills me with pure joy.",
+            "Your patience as we navigate life together is a true blessing.",
+            "Your willingness to compromise shows what true love really is.",
+            "Your effort to understand my perspective means everything.",
+            "Your consistency in loving me builds unshakeable security.",
+            "Your spontaneity keeps our relationship exciting and fresh.",
+            "Your thoughtfulness in small gestures speaks volumes of love.",
+            "Your protection of our relationship is honorable and noble.",
+            "Your investment in 'us' shows I'm your priority always.",
+            "Your vision for our future together inspires and motivates me.",
+            "Your commitment to faithfulness is my foundation of trust.",
+            "Your demonstration of love in action teaches me daily.",
+            "Your sacrifice for our relationship humbles and honors me.",
+            "Your perseverance through challenges strengthens us both.",
+            "Your hope for 'us' never wavers, and that gives me hope.",
+            "Your love reflects God's perfect love in my imperfect life.",
+            "You make me want to be a better man every single day.",
+            "With you, I've finally found my purpose and my peace.",
+            "Our love story is my absolute favorite story to tell.",
+            "Meeting you was destiny; loving you is my daily choice.",
+            "You are the missing puzzle piece I never knew I needed.",
+            "Loving you comes as naturally and essential as breathing.",
+            "You are both my answered prayer and my beautiful surprise.",
+            "In your eyes, I've found my true home and my heaven.",
+            "You are without question the best decision I've ever made.",
+            "My love for you grows stronger with each challenge we overcome.",
+            "You are worth every risk, every fear, every leap of faith."
+        ];
+
+        // Modal functionality
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalPhotoName = document.getElementById('modalPhotoName');
+        const modalMessage = document.getElementById('modalMessage');
+        const currentPhoto = document.getElementById('currentPhoto');
+        const closeModal = document.getElementById('closeModal');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        let currentPhotoIndex = 0;
+        const totalPhotos = 100;
+
+        // Function to open modal with specific photo
+        function openModal(photoIndex) {
+            currentPhotoIndex = photoIndex;
+            updateModal();
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Function to update modal content
+        function updateModal() {
+            const photoNum = currentPhotoIndex + 1;
             
-            // Update progress bar initially
-            updateProgressBar();
+            // Set image source
+            modalImage.src = `images/pic${photoNum}.jpg`;
+            modalImage.alt = `Photo ${photoNum} of my beautiful love`;
             
-            // Add scroll listener
-            window.addEventListener('scroll', handleScroll);
+            // Set photo name and message
+            modalPhotoName.textContent = sweetNames[currentPhotoIndex] || `My Beautiful Love ${photoNum}`;
+            modalMessage.textContent = sweetMessages[currentPhotoIndex] || sweetMessages[0];
+            currentPhoto.textContent = photoNum;
             
-            // Add click listeners to navigation buttons
-            prevBtn.addEventListener('click', showPrevStep);
-            nextBtn.addEventListener('click', showNextStep);
+            // Update button states
+            prevBtn.disabled = currentPhotoIndex === 0;
+            nextBtn.disabled = currentPhotoIndex === totalPhotos - 1;
             
-            // Add click listener to reveal button
-            revealBtn.addEventListener('click', () => {
-                specialMessageModal.show();
+            // Add loading state for image
+            modalImage.onload = function() {
+                modalImage.style.opacity = '1';
+            };
+            
+            modalImage.style.opacity = '0.7';
+        }
+
+        // Function to generate the photo gallery
+        async function generatePhotoGallery() {
+            const galleryContainer = document.getElementById('photoGallery');
+            
+            // Create 100 photo cards
+            for (let i = 0; i < totalPhotos; i++) {
+                const photoNum = i + 1;
                 
-                // Add confetti effect
-                createConfetti();
+                // Create photo card element
+                const photoCard = document.createElement('div');
+                photoCard.className = 'photo-card';
+                photoCard.dataset.index = i;
                 
-                // Play a subtle sound
-                playHeartSound();
-            });
-            
-            // Highlight Treasure's name throughout the page
-            highlightTreasureName();
+                // Add animation delay for staggered loading
+                photoCard.style.animationDelay = `${(i % 20) * 0.05}s`;
+                
+                // Create image container
+                const imgContainer = document.createElement('div');
+                imgContainer.className = 'photo-img-container';
+                
+                // Create image element
+                const img = document.createElement('img');
+                img.className = 'photo-img';
+                img.alt = `Photo ${photoNum} of my beautiful girlfriend`;
+                img.loading = "lazy";
+                
+                // Set image source to images folder
+                const imagePath = `images/pic${photoNum}.jpg`;
+                img.src = imagePath;
+                
+                // Add error handling for missing images
+                img.onerror = function() {
+                    // Create a beautiful placeholder
+                    this.src = `https://placehold.co/600x400/da70d6/ffffff?text=Love+${photoNum}&font=dancing-script`;
+                    this.alt = `Placeholder for photo ${photoNum}`;
+                };
+                
+                // Create photo info
+                const photoInfo = document.createElement('div');
+                photoInfo.className = 'photo-info';
+                
+                // Create photo name
+                const photoName = document.createElement('h3');
+                photoName.className = 'photo-name';
+                photoName.innerHTML = `<i class="fas fa-heart"></i> ${sweetNames[i] || `My Beautiful Love ${photoNum}`}`;
+                
+                // Create photo message preview
+                const photoMessage = document.createElement('p');
+                photoMessage.className = 'photo-message';
+                const messagePreview = sweetMessages[i] || sweetMessages[0];
+                photoMessage.textContent = messagePreview.length > 100 ? messagePreview.substring(0, 100) + '...' : messagePreview;
+                
+                // Create view button
+                const viewBtn = document.createElement('button');
+                viewBtn.className = 'view-full';
+                viewBtn.innerHTML = `<i class="fas fa-expand"></i> View Full`;
+                
+                // Add click event to open modal
+                viewBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openModal(i);
+                });
+                
+                // Also make entire card clickable
+                photoCard.addEventListener('click', () => {
+                    openModal(i);
+                });
+                
+                // Assemble the card
+                imgContainer.appendChild(img);
+                photoInfo.appendChild(photoName);
+                photoInfo.appendChild(photoMessage);
+                photoInfo.appendChild(viewBtn);
+                photoCard.appendChild(imgContainer);
+                photoCard.appendChild(photoInfo);
+                
+                // Add to gallery container
+                galleryContainer.appendChild(photoCard);
+            }
+        }
+
+        // Modal navigation
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
         });
-        
-        // Function to show a specific step
-        function showStep(stepIndex) {
-            // Hide all steps
-            stepSections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Show the selected step
-            if (stepSections[stepIndex]) {
-                stepSections[stepIndex].classList.add('active');
-                
-                // Scroll to the step
-                stepSections[stepIndex].scrollIntoView({ behavior: 'smooth' });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
             }
-            
-            // Update current step
-            currentStep = stepIndex;
-            
-            // Update progress bar
-            updateProgressBar();
-            
-            // Update navigation buttons visibility
-            updateNavButtons();
-        }
-        
-        // Function to show next step
-        function showNextStep() {
-            if (currentStep < totalSteps - 1) {
-                showStep(currentStep + 1);
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentPhotoIndex > 0) {
+                currentPhotoIndex--;
+                updateModal();
             }
-        }
-        
-        // Function to show previous step
-        function showPrevStep() {
-            if (currentStep > 0) {
-                showStep(currentStep - 1);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentPhotoIndex < totalPhotos - 1) {
+                currentPhotoIndex++;
+                updateModal();
             }
-        }
-        
-        // Function to update progress bar
-        function updateProgressBar() {
-            const progress = ((currentStep + 1) / totalSteps) * 100;
-            progressBar.style.width = `${progress}%`;
-        }
-        
-        // Function to update navigation buttons visibility
-        function updateNavButtons() {
-            // Hide previous button on first step
-            if (currentStep === 0) {
-                prevBtn.style.opacity = '0.5';
-                prevBtn.style.cursor = 'not-allowed';
-            } else {
-                prevBtn.style.opacity = '1';
-                prevBtn.style.cursor = 'pointer';
-            }
-            
-            // Hide next button on last step
-            if (currentStep === totalSteps - 1) {
-                nextBtn.style.opacity = '0.5';
-                nextBtn.style.cursor = 'not-allowed';
-            } else {
-                nextBtn.style.opacity = '1';
-                nextBtn.style.cursor = 'pointer';
-            }
-        }
-        
-        // Handle scroll to detect which step is in view
-        function handleScroll() {
-            // Only update if we're not currently animating between steps
-            if (!document.body.classList.contains('scrolling')) {
-                let windowHeight = window.innerHeight;
-                let scrollPosition = window.scrollY + (windowHeight / 2);
-                
-                // Find which step is currently in the middle of the viewport
-                for (let i = 0; i < stepSections.length; i++) {
-                    const section = stepSections[i];
-                    const sectionTop = section.offsetTop;
-                    const sectionBottom = sectionTop + section.offsetHeight;
-                    
-                    if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
-                        if (i !== currentStep) {
-                            currentStep = i;
-                            updateProgressBar();
-                            updateNavButtons();
-                        }
-                        break;
-                    }
-                }
-            }
-        }
-        
+        });
+
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowDown' || e.key === 'PageDown') {
-                e.preventDefault();
-                showNextStep();
-            } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-                e.preventDefault();
-                showPrevStep();
+            if (modal.style.display === 'flex') {
+                if (e.key === 'Escape') {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                } else if (e.key === 'ArrowLeft' && currentPhotoIndex > 0) {
+                    currentPhotoIndex--;
+                    updateModal();
+                } else if (e.key === 'ArrowRight' && currentPhotoIndex < totalPhotos - 1) {
+                    currentPhotoIndex++;
+                    updateModal();
+                }
             }
         });
-        
-        // Confetti effect function
-        function createConfetti() {
-            const confettiCount = 150;
-            const container = document.querySelector('body');
-            const confettiIcons = ['❤️', '💖', '💕', '💓', '💗', '💘', '💝'];
+
+        // Add floating hearts dynamically
+        function addFloatingHearts() {
+            const header = document.querySelector('header');
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-bg';
+                heart.innerHTML = '<i class="fas fa-heart"></i>';
+                
+                // Random position
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = 5 + Math.random() * 5;
+                const size = 15 + Math.random() * 25;
+                
+                heart.style.left = `${left}%`;
+                heart.style.top = `${top}%`;
+                heart.style.fontSize = `${size}px`;
+                heart.style.animationDelay = `${delay}s`;
+                heart.style.animationDuration = `${duration}s`;
+                
+                header.appendChild(heart);
+            }
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            generatePhotoGallery();
+            addFloatingHearts();
             
-            for (let i = 0; i < confettiCount; i++) {
-                const confetti = document.createElement('div');
-                confetti.innerHTML = confettiIcons[Math.floor(Math.random() * confettiIcons.length)];
-                confetti.style.position = 'fixed';
-                confetti.style.fontSize = Math.random() * 20 + 15 + 'px';
-                confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.top = '-50px';
-                confetti.style.opacity = Math.random() * 0.5 + 0.5;
-                confetti.style.zIndex = '9999';
-                confetti.style.pointerEvents = 'none';
-                
-                container.appendChild(confetti);
-                
-                // Animation
-                const animation = confetti.animate([
-                    { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
-                    { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 720}deg)`, opacity: 0 }
-                ], {
-                    duration: Math.random() * 3000 + 2000,
-                    easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+            // Add scroll animation to elements
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
                 });
-                
-                // Remove confetti after animation
-                animation.onfinish = () => {
-                    confetti.remove();
-                };
-            }
-        }
-        
-        // Play heart sound
-        function playHeartSound() {
-            // Create a simple beep sound
-            try {
-                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                const oscillator = audioContext.createOscillator();
-                const gainNode = audioContext.createGain();
-                
-                oscillator.connect(gainNode);
-                gainNode.connect(audioContext.destination);
-                
-                oscillator.frequency.value = 523.25; // C5
-                oscillator.type = 'sine';
-                
-                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
-                
-                oscillator.start(audioContext.currentTime);
-                oscillator.stop(audioContext.currentTime + 1);
-            } catch (e) {
-                console.log("Audio not supported");
-            }
-        }
-        
-        // Add floating animation to heart icons
-        document.querySelectorAll('.heart-icon').forEach(icon => {
-            icon.style.animationDelay = `${Math.random() * 2}s`;
-        });
-        
-        // Add subtle animation to Treasure's name
-        function highlightTreasureName() {
-            document.querySelectorAll('.treasure-name').forEach(name => {
-                name.addEventListener('mouseenter', function() {
-                    this.style.textShadow = '0 0 10px rgba(255, 107, 139, 0.5)';
-                });
-                
-                name.addEventListener('mouseleave', function() {
-                    this.style.textShadow = 'none';
-                });
+            }, observerOptions);
+            
+            // Observe story cards and photo cards
+            document.querySelectorAll('.story-card, .photo-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
             });
-        }
+        });
     </script>
 </body>
 </html>
